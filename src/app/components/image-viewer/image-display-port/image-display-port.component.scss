@@ -1,0 +1,9 @@
+@use "sass:map";
+@import "../../../../styles-settings";
+
+:host img {
+    border-width: 1px;
+    border-style: solid;
+    border-color: map.get($mat-choirbook-primary, 800);
+    border-radius: 2px;
+}

@@ -1,0 +1,79 @@
+$mat-choirbook-primary: (
+    50 : #f1e2e2,
+    100 : #dcb7b6,
+    200 : #c58885,
+    300 : #ad5854,
+    400 : #9c3430,
+    500 : #8a100b,
+    600 : #820e0a,
+    700 : #770c08,
+    800 : #6d0906,
+    900 : #5a0503,
+    A100 : #ff8d8b,
+    A200 : #ff5b58,
+    A400 : #ff2925,
+    A700 : #ff100c,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-choirbook-accent: (
+    50 : #f6f3ed,
+    100 : #e8e2d3,
+    200 : #d9ceb6,
+    300 : #c9ba98,
+    400 : #beac82,
+    500 : #b29d6c,
+    600 : #ab9564,
+    700 : #a28b59,
+    800 : #99814f,
+    900 : #8a6f3d,
+    A100 : #fff3dc,
+    A200 : #ffe1a9,
+    A400 : #ffce76,
+    A700 : #ffc55d,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// setting typography information
+$body-typography: 'Ysabeau Infant';
+$title-font: 'IM Fell English SC';
+
+$error-color: #b32b2b;
+
+$error-msg-color: #d00;
+
+$error-msg-bg-color: #eee;
+
+$site-header-top-padding: 64px;
+$site-header-top-padding-mobile: 56px;
+$image-paginator-height: 135px;

@@ -1,0 +1,7 @@
+<div class="flex justify-center items-center h-full w-full">
+    <div class="image-viewer-wrapper flex flex-col justify-start items-center">
+        <app-image-paginator class="w-full" [currentIndex]="currentImageIndex + 1" [maxIndex]="imageData.length" (paginationChange)="changePagination($event)"></app-image-paginator>
+        <mat-divider class="w-full"></mat-divider>
+        <app-image-display-port class="w-full h-full-minus-paginator" [imageDatum]="imageData[currentImageIndex]"></app-image-display-port>
+    </div>
+</div>

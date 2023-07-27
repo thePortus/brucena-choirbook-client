@@ -1,0 +1,450 @@
+export const Images = [{
+    path: 'folio_front.jpg',
+    versoDisplay: '',
+    rectoDisplay: ''
+}, {
+    path: 'folio_0v-folio_1r.jpg',
+    versoDisplay: '0',
+    rectoDisplay: '1'
+}, {
+    path: 'folio_2v-folio_3r.jpg',
+    versoDisplay: '2',
+    rectoDisplay: '3'
+}, {
+    path: 'folio_86v-folio_87r.jpg',
+    versoDisplay: '86',
+    rectoDisplay: '87'
+}, {
+    path: 'folio_88v-folio_89r.jpg',
+    versoDisplay: '88',
+    rectoDisplay: '89'
+}, {
+    path: 'folio_90v-folio_91r.jpg',
+    versoDisplay: '90',
+    rectoDisplay: '91'
+}, {
+    path: 'folio_92v-folio_93r.jpg',
+    versoDisplay: '92',
+    rectoDisplay: '93'
+}, {
+    path: 'folio_94v-folio_95r.jpg',
+    versoDisplay: '94',
+    rectoDisplay: '95'
+}, {
+    path: 'folio_96v-folio_97r.jpg',
+    versoDisplay: '96',
+    rectoDisplay: '97'
+}, {
+    path: 'folio_98v-folio_99r.jpg',
+    versoDisplay: '98',
+    rectoDisplay: '99'
+}, {
+    path: 'folio_100v-folio_101r.jpg',
+    versoDisplay: '100',
+    rectoDisplay: '101'
+}, {
+    path: 'folio_102v-folio_103r.jpg',
+    versoDisplay: '102',
+    rectoDisplay: '103'
+}, {
+    path: 'folio_104v-folio_105r.jpg',
+    versoDisplay: '104',
+    rectoDisplay: '105'
+}, {
+    path: 'folio_106v-folio_107r.jpg',
+    versoDisplay: '106',
+    rectoDisplay: '107'
+}, {
+    path: 'folio_108v-folio_109r.jpg',
+    versoDisplay: '108',
+    rectoDisplay: '109'
+}, {
+    path: 'folio_110v-folio_111r.jpg',
+    versoDisplay: '110',
+    rectoDisplay: '111'
+}, {
+    path: 'folio_112v-folio_113r.jpg',
+    versoDisplay: '112',
+    rectoDisplay: '113'
+}, {
+    path: 'folio_114v-folio_115r.jpg',
+    versoDisplay: '114',
+    rectoDisplay: '115'
+}, {
+    path: 'folio_116v-folio_117r.jpg',
+    versoDisplay: '116',
+    rectoDisplay: '117'
+}, {
+    path: 'folio_118v-folio_119r.jpg',
+    versoDisplay: '118',
+    rectoDisplay: '119'
+}, {
+    path: 'folio_120v-folio_121r.jpg',
+    versoDisplay: '120',
+    rectoDisplay: '121'
+}, {
+    path: 'folio_122v-folio_123r.jpg',
+    versoDisplay: '122',
+    rectoDisplay: '123'
+}, {
+    path: 'folio_124v-folio_125r.jpg',
+    versoDisplay: '124',
+    rectoDisplay: '125'
+}, {
+    path: 'folio_126v-folio_127r.jpg',
+    versoDisplay: '126',
+    rectoDisplay: '127'
+}, {
+    path: 'folio_128v-folio_129r.jpg',
+    versoDisplay: '128',
+    rectoDisplay: '129'
+}, {
+    path: 'folio_130v-folio_131r.jpg',
+    versoDisplay: '130',
+    rectoDisplay: '131'
+}, {
+    path: 'folio_132v-folio_133r.jpg',
+    versoDisplay: '132',
+    rectoDisplay: '133'
+}, {
+    path: 'folio_134v-folio_135r.jpg',
+    versoDisplay: '134',
+    rectoDisplay: '135'
+}, {
+    path: 'folio_136v-folio_137r.jpg',
+    versoDisplay: '136',
+    rectoDisplay: '137'
+}, {
+    path: 'folio_138v-folio_139r.jpg',
+    versoDisplay: '138',
+    rectoDisplay: '139'
+}, {
+    path: 'folio_140v-folio_141r.jpg',
+    versoDisplay: '140',
+    rectoDisplay: '141'
+}, {
+    path: 'folio_142v-folio_143r.jpg',
+    versoDisplay: '142',
+    rectoDisplay: '143'
+}, {
+    path: 'folio_144v-folio_145r.jpg',
+    versoDisplay: '144',
+    rectoDisplay: '145'
+}, {
+    path: 'folio_146v-folio_147r.jpg',
+    versoDisplay: '146',
+    rectoDisplay: '147'
+}, {
+    path: 'folio_148v-folio_149r.jpg',
+    versoDisplay: '148',
+    rectoDisplay: '149'
+}, {
+    path: 'folio_150v-folio_151r.jpg',
+    versoDisplay: '150',
+    rectoDisplay: '151'
+}, {
+    path: 'folio_152v-folio_153r.jpg',
+    versoDisplay: '152',
+    rectoDisplay: '153'
+}, {
+    path: 'folio_154v-folio_155r.jpg',
+    versoDisplay: '154',
+    rectoDisplay: '155'
+}, {
+    path: 'folio_156v-folio_157r.jpg',
+    versoDisplay: '156',
+    rectoDisplay: '157'
+}, {
+    path: 'folio_158v-folio_159r.jpg',
+    versoDisplay: '158',
+    rectoDisplay: '159'
+}, {
+    path: 'folio_160v-folio_161r.jpg',
+    versoDisplay: '160',
+    rectoDisplay: '161'
+}, {
+    path: 'folio_162v-folio_163r.jpg',
+    versoDisplay: '162',
+    rectoDisplay: '163'
+}, {
+    path: 'folio_164v-folio_165r.jpg',
+    versoDisplay: '164',
+    rectoDisplay: '165'
+}, {
+    path: 'folio_166v-folio_167r.jpg',
+    versoDisplay: '166',
+    rectoDisplay: '167'
+}, {
+    path: 'folio_168v-folio_169r.jpg',
+    versoDisplay: '168',
+    rectoDisplay: '169'
+}, {
+    path: 'folio_170v-folio_171r.jpg',
+    versoDisplay: '170',
+    rectoDisplay: '171'
+}, {
+    path: 'folio_172v-folio_173r.jpg',
+    versoDisplay: '172',
+    rectoDisplay: '173'
+}, {
+    path: 'folio_174v-folio_175r.jpg',
+    versoDisplay: '174',
+    rectoDisplay: '175'
+}, {
+    path: 'folio_176v-folio_177r.jpg',
+    versoDisplay: '176',
+    rectoDisplay: '177'
+}, {
+    path: 'folio_178v-folio_179r.jpg',
+    versoDisplay: '178',
+    rectoDisplay: '179'
+}, {
+    path: 'folio_180v-folio_181r.jpg',
+    versoDisplay: '180',
+    rectoDisplay: '181'
+}, {
+    path: 'folio_182v-folio_183r.jpg',
+    versoDisplay: '182',
+    rectoDisplay: '183'
+}, {
+    path: 'folio_184v-folio_185r.jpg',
+    versoDisplay: '184',
+    rectoDisplay: '185'
+}, {
+    path: 'folio_186v-folio_187r.jpg',
+    versoDisplay: '186',
+    rectoDisplay: '187'
+}, {
+    path: 'folio_188v-folio_189r.jpg',
+    versoDisplay: '188',
+    rectoDisplay: '189'
+}, {
+    path: 'folio_190v-folio_191r.jpg',
+    versoDisplay: '190',
+    rectoDisplay: '191'
+}, {
+    path: 'folio_192v-folio_193r.jpg',
+    versoDisplay: '192',
+    rectoDisplay: '193'
+}, {
+    path: 'folio_194v-folio_195r.jpg',
+    versoDisplay: '194',
+    rectoDisplay: '195'
+}, {
+    path: 'folio_196v-folio_197r.jpg',
+    versoDisplay: '196',
+    rectoDisplay: '197'
+}, {
+    path: 'folio_198v-folio_199r.jpg',
+    versoDisplay: '198',
+    rectoDisplay: '199'
+}, {
+    path: 'folio_200v-folio_201r.jpg',
+    versoDisplay: '200',
+    rectoDisplay: '201'
+}, {
+    path: 'folio_202v-folio_203r.jpg',
+    versoDisplay: '202',
+    rectoDisplay: '203'
+}, {
+    path: 'folio_204v-folio_205r.jpg',
+    versoDisplay: '204',
+    rectoDisplay: '205'
+}, {
+    path: 'folio_206v-folio_207r.jpg',
+    versoDisplay: '206',
+    rectoDisplay: '207'
+}, {
+    path: 'folio_208v-folio_209r.jpg',
+    versoDisplay: '208',
+    rectoDisplay: '209'
+}, {
+    path: 'folio_210v-folio_211r.jpg',
+    versoDisplay: '210',
+    rectoDisplay: '211'
+}, {
+    path: 'folio_212v-folio_213r.jpg',
+    versoDisplay: '212',
+    rectoDisplay: '213'
+}, {
+    path: 'folio_214v-folio_215r.jpg',
+    versoDisplay: '214',
+    rectoDisplay: '215'
+}, {
+    path: 'folio_216v-folio_217r.jpg',
+    versoDisplay: '216',
+    rectoDisplay: '217'
+}, {
+    path: 'folio_218v-folio_219r.jpg',
+    versoDisplay: '218',
+    rectoDisplay: '219'
+}, {
+    path: 'folio_220v-folio_221r.jpg',
+    versoDisplay: '220',
+    rectoDisplay: '221'
+}, {
+    path: 'folio_222v-folio_223r.jpg',
+    versoDisplay: '222',
+    rectoDisplay: '223'
+}, {
+    path: 'folio_224v-folio_225r.jpg',
+    versoDisplay: '224',
+    rectoDisplay: '225'
+}, {
+    path: 'folio_226v-folio_227r.jpg',
+    versoDisplay: '226',
+    rectoDisplay: '227'
+}, {
+    path: 'folio_228v-folio_229r.jpg',
+    versoDisplay: '228',
+    rectoDisplay: '229'
+}, {
+    path: 'folio_230v-folio_231r.jpg',
+    versoDisplay: '230',
+    rectoDisplay: '231'
+}, {
+    path: 'folio_232v-folio_233r.jpg',
+    versoDisplay: '232',
+    rectoDisplay: '233'
+}, {
+    path: 'folio_234v-folio_235r.jpg',
+    versoDisplay: '234',
+    rectoDisplay: '235'
+}, {
+    path: 'folio_236v-folio_237r.jpg',
+    versoDisplay: '236',
+    rectoDisplay: '237'
+}, {
+    path: 'folio_238v-folio_239r.jpg',
+    versoDisplay: '238',
+    rectoDisplay: '239'
+}, {
+    path: 'folio_240v-folio_241r.jpg',
+    versoDisplay: '240',
+    rectoDisplay: '241'
+}, {
+    path: 'folio_242v-folio_243r.jpg',
+    versoDisplay: '242',
+    rectoDisplay: '243'
+}, {
+    path: 'folio_244v-folio_245r.jpg',
+    versoDisplay: '244',
+    rectoDisplay: '245'
+}, {
+    path: 'folio_246v-folio_247r.jpg',
+    versoDisplay: '246',
+    rectoDisplay: '247'
+}, {
+    path: 'folio_248v-folio_249r.jpg',
+    versoDisplay: '248',
+    rectoDisplay: '249'
+}, {
+    path: 'folio_250v-folio_251r.jpg',
+    versoDisplay: '250',
+    rectoDisplay: '251'
+}, {
+    path: 'folio_252v-folio_253r.jpg',
+    versoDisplay: '252',
+    rectoDisplay: '253'
+}, {
+    path: 'folio_254v-folio_255r.jpg',
+    versoDisplay: '254',
+    rectoDisplay: '255'
+}, {
+    path: 'folio_256v-folio_257r.jpg',
+    versoDisplay: '256',
+    rectoDisplay: '257'
+}, {
+    path: 'folio_258v-folio_259r.jpg',
+    versoDisplay: '258',
+    rectoDisplay: '259'
+}, {
+    path: 'folio_260v-folio_261r.jpg',
+    versoDisplay: '260',
+    rectoDisplay: '261'
+}, {
+    path: 'folio_262v-folio_263r.jpg',
+    versoDisplay: '262',
+    rectoDisplay: '263'
+}, {
+    path: 'folio_264v-folio_265r.jpg',
+    versoDisplay: '264',
+    rectoDisplay: '265'
+}, {
+    path: 'folio_266v-folio_267r.jpg',
+    versoDisplay: '266',
+    rectoDisplay: '267'
+}, {
+    path: 'folio_268v-folio_269r.jpg',
+    versoDisplay: '268',
+    rectoDisplay: '269'
+}, {
+    path: 'folio_270v-folio_271r.jpg',
+    versoDisplay: '270',
+    rectoDisplay: '271'
+}, {
+    path: 'folio_272v-folio_273r.jpg',
+    versoDisplay: '272',
+    rectoDisplay: '273'
+}, {
+    path: 'folio_274v-folio_275r.jpg',
+    versoDisplay: '274',
+    rectoDisplay: '275'
+}, {
+    path: 'folio_276v-folio_277r.jpg',
+    versoDisplay: '276',
+    rectoDisplay: '277'
+}, {
+    path: 'folio_278v-folio_279r.jpg',
+    versoDisplay: '278',
+    rectoDisplay: '279'
+}, {
+    path: 'folio_280v-folio_281r.jpg',
+    versoDisplay: '280',
+    rectoDisplay: '281'
+}, {
+    path: 'folio_282v-folio_283r.jpg',
+    versoDisplay: '282',
+    rectoDisplay: '283'
+}, {
+    path: 'folio_284v-folio_285r.jpg',
+    versoDisplay: '284',
+    rectoDisplay: '285'
+}, {
+    path: 'folio_286v-folio_287r.jpg',
+    versoDisplay: '286',
+    rectoDisplay: '287'
+}, {
+    path: 'folio_288v-folio_289r.jpg',
+    versoDisplay: '288',
+    rectoDisplay: '289'
+}, {
+    path: 'folio_290v-folio_291r.jpg',
+    versoDisplay: '290',
+    rectoDisplay: '291'
+}, {
+    path: 'folio_292v-folio_293r.jpg',
+    versoDisplay: '292',
+    rectoDisplay: '293'
+}, {
+    path: 'folio_294v-folio_295r.jpg',
+    versoDisplay: '294',
+    rectoDisplay: '295'
+}, {
+    path: 'folio_296v-folio_297r.jpg',
+    versoDisplay: '296',
+    rectoDisplay: '297'
+}, {
+    path: 'folio_298v-folio_299r.jpg',
+    versoDisplay: '298',
+    rectoDisplay: '299'
+}, {
+    path: 'folio_300v-folio_301r.jpg',
+    versoDisplay: '300',
+    rectoDisplay: '301'
+}, {
+    path: 'folio_back.jpg',
+    versoDisplay: '',
+    rectoDisplay: ''
+}];
+  

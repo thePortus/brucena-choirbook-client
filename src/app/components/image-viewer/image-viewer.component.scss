@@ -1,0 +1,35 @@
+@use "sass:map";
+@import "../../../styles-settings";
+
+
+// If the screen size is 640px wide or more, set for large screen
+@media screen and (min-width: 640px) {
+    :host .image-viewer-wrapper {
+        border-width: 1px;
+        border-style: solid;
+        border-color: map.get($mat-choirbook-primary, 800);
+        border-radius: 5px;
+        padding: 5px;
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+    }
+}
+  
+// If the screen size is 640px wide or less, set for mobile
+@media screen and (max-width: 640px){
+    :host .image-viewer-wrapper {
+        border-width: 1px;
+        border-style: solid;
+        border-color: map.get($mat-choirbook-primary, 800);
+        border-radius: 5px;
+        padding: 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+    }
+}
+
+
+
+:host mat-divider {
+    padding: 5px 0px 5px 0px;
+}

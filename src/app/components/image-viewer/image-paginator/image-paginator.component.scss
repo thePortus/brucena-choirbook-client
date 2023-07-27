@@ -1,0 +1,16 @@
+@import "../../../../styles-settings";
+
+:host .paginator-wrapper {
+    font-family: $body-typography;
+    padding: 0px 15px 15px 15px;
+}
+
+:host .paginator-controls {
+    padding: 0px 10px 0px 10px;
+}
+
+:host mat-form-field {
+    width: 75px;
+    margin: 0px 5px 0px 5px;
+    display: flex;
+}

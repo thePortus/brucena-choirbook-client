@@ -1,0 +1,27 @@
+<div class="paginator-wrapper flex flex-col justify-around items-center">
+    <div class="paginator-controls flex flex-row justify-center items-center w-full">
+        <div (click)="gotoFirst()">
+            <mat-icon fontIcon="first_page" aria-label="First image"></mat-icon>
+        </div>
+        <div (click)="decrementIndex()">
+            <mat-icon fontIcon="navigate_before" aria-label="Previous image"></mat-icon>
+        </div>
+        <div class="flex flow-row justify-center items-center">
+            <mat-form-field>
+                <input matInput type="number" [(ngModel)]="this.currentIndex" (change)="gotoIndex(this.currentIndex)" />
+            </mat-form-field>
+            <div class="max-index-wrapper">
+                of {{ this.maxIndex }}
+            </div>
+        </div>
+        <div (click)="incrementIndex()">
+            <mat-icon fontIcon="navigate_next" aria-label="Next image"></mat-icon>
+        </div>
+        <div (click)="gotoLast()">
+            <mat-icon fontIcon="last_page" aria-label="Last image"></mat-icon>
+        </div>
+    </div>
+    <div class="max-sm:invisible w-full">
+        <mat-progress-bar class="w-50 flex grow" mode="determinate" [value]="(this.currentIndex / this.maxIndex) * 100"></mat-progress-bar>
+    </div>
+</div>

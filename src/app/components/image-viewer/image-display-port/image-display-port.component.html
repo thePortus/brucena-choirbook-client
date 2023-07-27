@@ -1,0 +1,29 @@
+<div class="h-full flex flex-col items-center justify-center">
+    <div *ngIf="!hasLoaded" class="flex flex-col h-full w-full justify-center items-center">
+        <mat-spinner></mat-spinner>
+        <p>Loading</p>
+    </div>
+    <div class="h-full w-full flex flex-col justify-start items-center">
+        <div class="flex w-full flex-row justify-around">
+            <div [hidden]="!hasLoaded">
+                <span [hidden]="imageDatum.versoDisplay == ''">
+                    {{ imageDatum.versoDisplay }} (verso)
+                </span>
+                <span [hidden]="imageDatum.versoDisplay != ''">
+                    Untitled (verso)
+                </span>
+            </div>
+            <div [hidden]="!hasLoaded">
+                <span [hidden]="imageDatum.rectoDisplay == ''">
+                    {{ imageDatum.rectoDisplay }} (recto)
+                </span>
+                <span [hidden]="imageDatum.rectoDisplay != ''">
+                    Untitled (recto)
+                </span>
+            </div>
+        </div>
+        <div class="h-full w-full flex justify-center">
+            <img id="main-image" class="scale-down" [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()">
+        </div>
+    </div>
+</div>
