@@ -44,7 +44,7 @@ Now uncomment out the second server block code in `/nginx/conf/default.conf`. Ma
 Finally, restart the server!
 
 ``` sh
-docker compose restart
+docker compose up -d
 ```
 
 If you have problems and the docker container keeps restarting, the certbot might not have run correctly. To fix this, first, bring down the container with `docker compose down`. Then, re-comment out the SSH lines in your `nginx/nginx.conf` file. Now, bring the image back up with `docker compose up -d`. Then run the command `docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --email sample@your_domain --agree-tos --no-eff-email -d your_domain -d www.your_domain`. Once it is complete, un-comment out the `nginx/nginx.conf` file and `docker compose up -d` to get it started.
