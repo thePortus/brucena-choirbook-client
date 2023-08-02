@@ -30,6 +30,7 @@ import { ImageViewerComponent } from './components/image-viewer/image-viewer.com
 import { SampleViewComponent } from './components/sample-view/sample-view.component';
 import { ImageDisplayPortComponent } from './components/image-viewer/image-display-port/image-display-port.component';
 import { ImagePaginatorComponent } from './components/image-viewer/image-paginator/image-paginator.component';
+import { ImageViewerDirective } from './directives/image-viewer.directive';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ImagePaginatorComponent } from './components/image-viewer/image-paginat
     SampleViewComponent,
     ImageDisplayPortComponent,
     ImagePaginatorComponent,
+    ImageViewerDirective,
   ],
   imports: [
     BrowserModule,

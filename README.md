@@ -1,4 +1,4 @@
-# bruceña-choirbook-client
+# brucena-choirbook-client
 
 *Sacred Music in Golden Age Salamanca - The Contribution of Susana Muñoz and Artus Taberniel*
 
@@ -12,15 +12,13 @@ Full Stack (MySQL ExpressJS Angular NodeJS) app for browsing the lost choirbook 
 
 Current installation is on a Docker setup.
 
-
 Install docker, and docker-compose locally. Then clone this repo and move inside the directory.
 
 ``` sh
-git clone https://github.com/thePortus/bruceña-choirbook-client.git
-cd bruceña-choirbook-client
+git clone https://github.com/thePortus/brucena-choirbook-client.git
+cd brucena-choirbook-client
 ```
-
-Thenm, modify the following files with your desired accounts/passwords/ports
+Then, modify the following files with your desired accounts/passwords/ports
 
 ``` sh
 # you must change the server_name and redirect to have the url to which you are deploying

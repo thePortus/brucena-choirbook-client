@@ -9,7 +9,7 @@
         border-style: solid;
         border-color: map.get($mat-choirbook-primary, 800);
         border-radius: 5px;
-        padding: 5px;
+        padding: 0px 5px 0px 5px;
         width: calc(100% - 40px);
         height: calc(100% - 40px);
     }
@@ -22,7 +22,7 @@
         border-style: solid;
         border-color: map.get($mat-choirbook-primary, 800);
         border-radius: 5px;
-        padding: 5px;
+        padding: 0px 5px 0px 5px;
         width: calc(100% - 10px);
         height: calc(100% - 10px);
     }
@@ -31,5 +31,5 @@
 
 
 :host mat-divider {
-    padding: 5px 0px 5px 0px;
+    padding: 2px 0px 2px 0px;
 }
