@@ -133,7 +133,9 @@ export class ImageDisplayPortComponent implements AfterViewInit {
    */
   imageLoaded() {
     this.hasLoaded = true;
-    this.adjustSizes();
+    setTimeout(() => {
+      this.adjustSizes();
+    }, 100); // Add a slight delay to ensure the DOM is fully rendered
   }
 
   /**
