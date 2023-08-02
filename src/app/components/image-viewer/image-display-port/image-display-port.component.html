@@ -1,29 +1,69 @@
-<div class="h-full flex flex-col items-center justify-center">
+<div class="h-full flex flex-col items-start justify-center">
     <div *ngIf="!hasLoaded" class="flex flex-col h-full w-full justify-center items-center">
         <mat-spinner></mat-spinner>
         <p>Loading</p>
     </div>
     <div class="h-full w-full flex flex-col justify-start items-center">
-        <div class="flex w-full flex-row justify-around">
-            <div [hidden]="!hasLoaded">
-                <span [hidden]="imageDatum.versoDisplay == ''">
-                    {{ imageDatum.versoDisplay }} (verso)
-                </span>
-                <span [hidden]="imageDatum.versoDisplay != ''">
-                    Untitled (verso)
-                </span>
+        <div class="image-wrapper h-full w-full flex justify-center" #imageWrapper>
+            <div class="image-container h-full w-full flex justify-center">
+                <!-- toolbar overlay -->
+                <div *ngIf="hasLoaded" class="toolbar flex flex-row justify-start items-center">
+                    <!-- pagination info -->
+                    <div class="flex w-full flex-row justify-start">
+                        <!-- display info if neither page is titled (numbered) -->
+                        <div *ngIf="imageDatum.versoDisplay == '' && imageDatum.rectoDisplay == ''">
+                            Untitled Opening
+                        </div>
+                        <!-- display info if at least one page is titled (numbered) -->
+                        <div [hidden]="!hasLoaded" *ngIf="imageDatum.versoDisplay != '' || imageDatum.rectoDisplay != ''" class="flex flex-row justify-start">
+                            <div>
+                                <span [hidden]="imageDatum.versoDisplay == ''">
+                                    {{ imageDatum.versoDisplay }} (verso)
+                                </span>
+                                <span [hidden]="imageDatum.versoDisplay != ''">
+                                    Untitled (verso)
+                                </span>
+                            </div>
+                            <div class="px-2">
+                                -
+                            </div>
+                            <div>
+                                <span [hidden]="imageDatum.rectoDisplay == ''">
+                                    {{ imageDatum.rectoDisplay }} (recto)
+                                </span>
+                                <span [hidden]="imageDatum.rectoDisplay != ''">
+                                    Untitled (recto)
+                                </span>
+                            </div>
+                        </div>     
+                    </div>
+                    <!-- zoom and pan controls -->
+                    <div class="w-full flex flex-row justify-end">                
+                        <div class="flex flex-col justify-center items-center" (click)="decreasePan('x')">
+                            <mat-icon fontIcon="chevron_left" aria-label="Pan left"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="decreasePan('y')">
+                            <mat-icon fontIcon="expand_less" aria-label="Pan up"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="increasePan('y')">
+                            <mat-icon fontIcon="expand_more" aria-label="Pan down"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="increasePan('x')">
+                            <mat-icon fontIcon="chevron_right" aria-label="Pan right"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="increaseZoom()">
+                            <mat-icon fontIcon="zoom_in" aria-label="Zoom in"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="decreaseZoom()">
+                            <mat-icon fontIcon="zoom_out" aria-label="Zoom out"></mat-icon>
+                        </div>
+                        <div class="flex flex-col justify-center items-center" (click)="resetImage()">
+                            <mat-icon fontIcon="refresh" aria-label="Reset image"></mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <img appImageViewer [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" #mainImage>
             </div>
-            <div [hidden]="!hasLoaded">
-                <span [hidden]="imageDatum.rectoDisplay == ''">
-                    {{ imageDatum.rectoDisplay }} (recto)
-                </span>
-                <span [hidden]="imageDatum.rectoDisplay != ''">
-                    Untitled (recto)
-                </span>
-            </div>
-        </div>
-        <div class="h-full w-full flex justify-center">
-            <img id="main-image" class="scale-down" [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()">
         </div>
     </div>
 </div>
