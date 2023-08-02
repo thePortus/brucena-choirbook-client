@@ -26,8 +26,6 @@ export class ImageDisplayPortComponent implements AfterViewInit {
   mouseDown = false;
   mouseX = 0;
   mouseY = 0;
-  // track if component has been initialized
-  componentInitialized = false;
 
   @HostListener ('window:resize', ['$event'])
   sizeChange(event: any) {
@@ -113,7 +111,6 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     setTimeout(() => {
       this.adjustSizes();
     }, 100); // Add a slight delay to ensure the DOM is fully rendered
-    this.componentInitialized = true;
   }
 
   /**
@@ -123,8 +120,7 @@ export class ImageDisplayPortComponent implements AfterViewInit {
    */
   ngOnChanges(changes: SimpleChanges) {
     // prevent recalcing image if changes happen before image has loaded in
-    if (this.hasLoaded || !this.componentInitialized) {
-      
+    if (this.hasLoaded) {
       this.adjustSizes();
     }
     this.resetImage();
@@ -137,6 +133,7 @@ export class ImageDisplayPortComponent implements AfterViewInit {
    */
   imageLoaded() {
     this.hasLoaded = true;
+    this.adjustSizes();
   }
 
   /**
