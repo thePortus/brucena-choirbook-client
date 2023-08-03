@@ -8,6 +8,11 @@ export class ImageViewerDirective {
   @Input() yPan: number = 0;
   @Input() zoomLevel: number = 1;
 
+  // tracks if touch gesture is currently pressed down
+  touchDown = false;
+  touchX = 0;
+  touchY = 0;
+
   constructor(private el: ElementRef) {
     this.applyInputs();
   }
@@ -26,6 +31,43 @@ export class ImageViewerDirective {
    */
   applyInputs() {
     this.el.nativeElement.style.transform = 'scale(' + this.zoomLevel +  ') translate(' + this.xPan + 'px, ' + this.yPan + 'px)';
+  }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    let touch = event.touches[0];
+    // stores location of mouse upon touch, to later calculate translation
+    this.touchX = touch.pageX;
+    this.touchY = touch.pageY;
+    this.touchDown = true;
+  }
+
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent) {
+    let touch = event.touches[0];
+    // calculates how much the mouse has moved since touch and then translates to pan
+    if (this.touchDown) {
+      const translateX = (touch.pageX - this.touchX);
+      const translateY = (touch.pageY - this.touchY);
+      // store new mouse location
+      this.touchX = touch.pageX;
+      this.touchY = touch.pageY;
+      // move image
+      this.xPan += translateX;
+      this.yPan += translateY;
+    }
+  }
+
+  @HostListener('touchend', ['$event'])
+  onTouchEnd(event: TouchEvent) {
+    let touch = event.touches[0];
+    // calculates how much the mouse has moved since touch and then translates to pan, then clears mouseDown flag
+    this.touchDown = false;
+    const translateX = (touch.pageX - this.touchX);
+    const translateY = (touch.pageY - this.touchY);
+    // move image
+    this.xPan += translateX;
+    this.yPan += translateY;
   }
 
 }

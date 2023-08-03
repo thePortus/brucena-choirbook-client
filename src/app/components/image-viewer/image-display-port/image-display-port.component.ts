@@ -27,86 +27,6 @@ export class ImageDisplayPortComponent implements AfterViewInit {
   mouseX = 0;
   mouseY = 0;
 
-  @HostListener ('window:resize', ['$event'])
-  sizeChange(event: any) {
-    this.adjustSizes();
-  }
-
-  @HostListener ('document:keypress', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.key == '=' || event.key == '+') {
-      this.increaseZoom();
-    }
-    else if (event.key == '-' || event.key == '_') {
-      this.decreaseZoom();
-    }
-  }
-
-  @HostListener ('document:keydown', ['$event'])
-  handleArrowKeyEvent(event: KeyboardEvent) {
-    if (event.key == 'ArrowUp') {
-      this.decreasePan('y');
-    }
-    else if (event.key == 'ArrowDown') {
-      this.increasePan('y');
-    }
-    else if (event.key == 'ArrowLeft') {
-      this.decreasePan('x');
-    }
-    else if (event.key == 'ArrowRight') {
-      this.increasePan('x');
-    }
-    else if (event.key == 'Backspace' || event.key == ' ' || event.key == 'Enter') {
-      this.resetImage();
-    }
-  }
-
-  @HostListener('wheel', ['$event'])
-  onMouseWheel(event: WheelEvent) {
-    if(event.deltaY < 0) {
-      this.increaseZoom(Math.abs(event.deltaY) / 150);
-    }
-    else {
-      this.decreaseZoom(event.deltaY / 150);
-    }
-  }
-
-  @HostListener('document:mousedown', ['$event'])
-  onMouseDown(event: MouseEvent) {
-    // stores location of mouse upon mouse down, to later calculate translation
-    this.mouseX = event.clientX;
-    this.mouseY = event.clientY;
-    this.mouseDown = true;
-  }
-
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    // calculates how much the mouse has moved since mousedown and then translates to pan
-    if (this.mouseDown) {
-      const translateX = (event.clientX - this.mouseX);
-      const translateY = (event.clientY - this.mouseY);
-      // store new mouse location
-      this.mouseX = event.clientX;
-      this.mouseY = event.clientY;
-      // move image
-      this.increasePan('x', translateX);
-      this.increasePan('y', translateY);
-    }
-  }
-
-  @HostListener('document:mouseup', ['$event'])
-  onMouseUp(event: MouseEvent) {
-    // calculates how much the mouse has moved since mousedown and then translates to pan, then clears mouseDown flag
-    this.mouseDown = false;
-    const translateX = (event.clientX - this.mouseX);
-    const translateY = (event.clientY - this.mouseY);
-    // move image
-    this.increasePan('x', translateX);
-    this.increasePan('y', translateY);
-  }
-
-
-
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.adjustSizes();
@@ -263,38 +183,79 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
-  @HostListener('touchstart', ['$event'])
-  onTouchStart(event: TouchEvent) {
-    let touch = event.touches[0];
-    // stores location of mouse upon touch, to later calculate translation
-    this.mouseX = touch.pageX;
-    this.mouseY = touch.pageY;
+  @HostListener ('window:resize', ['$event'])
+  sizeChange(event: any) {
+    this.adjustSizes();
+  }
+
+  @HostListener ('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key == '=' || event.key == '+') {
+      this.increaseZoom();
+    }
+    else if (event.key == '-' || event.key == '_') {
+      this.decreaseZoom();
+    }
+  }
+
+  @HostListener ('document:keydown', ['$event'])
+  handleArrowKeyEvent(event: KeyboardEvent) {
+    if (event.key == 'ArrowUp') {
+      this.decreasePan('y');
+    }
+    else if (event.key == 'ArrowDown') {
+      this.increasePan('y');
+    }
+    else if (event.key == 'ArrowLeft') {
+      this.decreasePan('x');
+    }
+    else if (event.key == 'ArrowRight') {
+      this.increasePan('x');
+    }
+    else if (event.key == 'Backspace' || event.key == ' ' || event.key == 'Enter') {
+      this.resetImage();
+    }
+  }
+
+  @HostListener('wheel', ['$event'])
+  onMouseWheel(event: WheelEvent) {
+    if(event.deltaY < 0) {
+      this.increaseZoom(Math.abs(event.deltaY) / 150);
+    }
+    else {
+      this.decreaseZoom(event.deltaY / 150);
+    }
+  }
+
+  @HostListener('document:mousedown', ['$event'])
+  onMouseDown(event: MouseEvent) {
+    // stores location of mouse upon mouse down, to later calculate translation
+    this.mouseX = event.clientX;
+    this.mouseY = event.clientY;
     this.mouseDown = true;
   }
 
-  @HostListener('touchmove', ['$event'])
-  onTouchMove(event: TouchEvent) {
-    let touch = event.touches[0];
-    // calculates how much the mouse has moved since touch and then translates to pan
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    // calculates how much the mouse has moved since mousedown and then translates to pan
     if (this.mouseDown) {
-      const translateX = (touch.pageX - this.mouseX);
-      const translateY = (touch.pageY - this.mouseY);
+      const translateX = (event.clientX - this.mouseX);
+      const translateY = (event.clientY - this.mouseY);
       // store new mouse location
-      this.mouseX = touch.pageX;
-      this.mouseY = touch.pageY;
+      this.mouseX = event.clientX;
+      this.mouseY = event.clientY;
       // move image
       this.increasePan('x', translateX);
       this.increasePan('y', translateY);
     }
   }
 
-  @HostListener('touchend', ['$event'])
-  onTouchEnd(event: TouchEvent) {
-    let touch = event.touches[0];
-    // calculates how much the mouse has moved since touch and then translates to pan, then clears mouseDown flag
+  @HostListener('document:mouseup', ['$event'])
+  onMouseUp(event: MouseEvent) {
+    // calculates how much the mouse has moved since mousedown and then translates to pan, then clears mouseDown flag
     this.mouseDown = false;
-    const translateX = (touch.pageX - this.mouseX);
-    const translateY = (touch.pageY - this.mouseY);
+    const translateX = (event.clientX - this.mouseX);
+    const translateY = (event.clientY - this.mouseY);
     // move image
     this.increasePan('x', translateX);
     this.increasePan('y', translateY);
