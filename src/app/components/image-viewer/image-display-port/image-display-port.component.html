@@ -9,7 +9,7 @@
                 <!-- toolbar overlay -->
                 <div *ngIf="hasLoaded" class="toolbar flex flex-row justify-start items-center">
                     <!-- pagination info -->
-                    <div class="flex w-full flex-row justify-start">
+                    <div class="flex w-full flex-row justify-center">
                         <!-- display info if neither page is titled (numbered) -->
                         <div *ngIf="imageDatum.versoDisplay == '' && imageDatum.rectoDisplay == ''">
                             Untitled Opening
@@ -37,30 +37,49 @@
                             </div>
                         </div>     
                     </div>
-                    <!-- zoom and pan controls -->
-                    <div class="w-full flex flex-row justify-end">                
-                        <div class="flex flex-col justify-center items-center" (click)="decreasePan('x')">
-                            <mat-icon fontIcon="chevron_left" aria-label="Pan left"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="decreasePan('y')">
-                            <mat-icon fontIcon="expand_less" aria-label="Pan up"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="increasePan('y')">
-                            <mat-icon fontIcon="expand_more" aria-label="Pan down"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="increasePan('x')">
-                            <mat-icon fontIcon="chevron_right" aria-label="Pan right"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="increaseZoom()">
-                            <mat-icon fontIcon="zoom_in" aria-label="Zoom in"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="decreaseZoom()">
-                            <mat-icon fontIcon="zoom_out" aria-label="Zoom out"></mat-icon>
-                        </div>
-                        <div class="flex flex-col justify-center items-center" (click)="resetImage()">
-                            <mat-icon fontIcon="refresh" aria-label="Reset image"></mat-icon>
-                        </div>
-                    </div>
+                </div>
+                <!-- zoom and pan controls -->
+                <div class="camera-controls">
+                    <mat-grid-list cols="3" rowHeight="1:1">
+                        <!-- top row grid -->
+                        <mat-grid-tile colspan="3">
+                            <div class="flex flex-col justify-center items-center" (click)="decreasePan('y')">
+                                <mat-icon fontIcon="expand_less" aria-label="Pan up"></mat-icon>
+                            </div>
+                        </mat-grid-tile>
+                        <!-- middle row grid-->
+                        <mat-grid-tile>
+                            <div class="flex flex-col justify-center items-center" (click)="decreasePan('x')">
+                                <mat-icon fontIcon="chevron_left" aria-label="Pan left"></mat-icon>
+                            </div>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <div class="flex flex-col justify-center items-center" (click)="resetImage()">
+                                <mat-icon fontIcon="refresh" aria-label="Reset image"></mat-icon>
+                            </div>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <div class="flex flex-col justify-center items-center" (click)="increasePan('x')">
+                                <mat-icon fontIcon="chevron_right" aria-label="Pan right"></mat-icon>
+                            </div>
+                          </mat-grid-tile>
+                        <!-- bottom row grid -->
+                        <mat-grid-tile>
+                            <div class="flex flex-col justify-center items-center" (click)="decreaseZoom()">
+                                <mat-icon fontIcon="zoom_out" aria-label="Zoom out"></mat-icon>
+                            </div>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <div class="flex flex-col justify-center items-center" (click)="increasePan('y')">
+                                    <mat-icon fontIcon="expand_more" aria-label="Pan down"></mat-icon>
+                                </div>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <div class="flex flex-col justify-center items-center" (click)="increaseZoom()">
+                                    <mat-icon fontIcon="zoom_in" aria-label="Zoom in"></mat-icon>
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
                 </div>
                 <img appImageViewer [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" (updatePan)="updatePan($event)" #mainImage>
             </div>

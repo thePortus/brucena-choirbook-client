@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -60,6 +61,7 @@ import { ImageViewerDirective } from './directives/image-viewer.directive';
     MatTabsModule,
     MatCardModule,
     MatListModule,
+    MatGridListModule,
     MatDividerModule,
     MatSidenavModule,
     MatPaginatorModule,
