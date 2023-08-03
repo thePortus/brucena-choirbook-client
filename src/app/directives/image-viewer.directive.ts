@@ -7,6 +7,7 @@ export class ImageViewerDirective {
   @Input() xPan: number = 0;
   @Input() yPan: number = 0;
   @Input() zoomLevel: number = 1;
+  @Output() updatePan = new EventEmitter<any>;
 
   // tracks if touch gesture is currently pressed down
   touchDown = false;
@@ -52,10 +53,11 @@ export class ImageViewerDirective {
       // store new mouse location
       this.touchX = touch.pageX;
       this.touchY = touch.pageY;
-      // move image
-      this.xPan += translateX;
-      this.yPan += translateY;
-      this.applyInputs();
+      // emit changes to parent
+      this.updatePan.emit({
+        x: this.xPan += translateX,
+        y: this.yPan += translateY
+      });
     }
   }
 
@@ -66,10 +68,11 @@ export class ImageViewerDirective {
     this.touchDown = false;
     const translateX = (touch.pageX - this.touchX);
     const translateY = (touch.pageY - this.touchY);
-    // move image
-    this.xPan += translateX;
-    this.yPan += translateY;
-    this.applyInputs();
+    // emit changes to parent
+    this.updatePan.emit({
+      x: this.xPan += translateX,
+      y: this.yPan += translateY
+    });
   }
 
 }

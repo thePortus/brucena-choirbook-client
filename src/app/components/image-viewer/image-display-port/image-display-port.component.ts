@@ -183,6 +183,15 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Called by event emitter of child directive, applies changes to xPan and yPan
+   * 
+   */
+  updatePan(event: any) {
+    this.xPan = event.x;
+    this.yPan = event.y;
+  }
+
   @HostListener ('window:resize', ['$event'])
   sizeChange(event: any) {
     this.adjustSizes();
