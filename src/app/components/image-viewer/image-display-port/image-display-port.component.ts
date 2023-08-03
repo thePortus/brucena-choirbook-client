@@ -272,6 +272,9 @@ export class ImageDisplayPortComponent implements AfterViewInit {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
+    // prevents default touch handling
+    event.preventDefault();
+    // get touch info
     let touch = event.touches[0];
     // stores location of mouse upon touch, to later calculate translation
     this.mouseX = touch.pageX;
@@ -281,6 +284,9 @@ export class ImageDisplayPortComponent implements AfterViewInit {
 
   @HostListener('touchmove', ['$event'])
   onTouchMove(event: TouchEvent) {
+    // prevents default touch handling
+    event.preventDefault();
+    // get touch info
     let touch = event.touches[0];
     // calculates how much the mouse has moved since touch and then translates to pan
     if (this.mouseDown) {
