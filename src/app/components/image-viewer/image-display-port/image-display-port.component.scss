@@ -52,10 +52,16 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
-    pointer-events: none;
+    //pointer-events: none;
     -khtml-user-select: none;
     -o-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    cursor: grab;
+}
+
+// disables pointer events except during hover (when cursor turns to pointer)
+:host .image-container img:active {
+    pointer-events: none;
 }
