@@ -272,8 +272,6 @@ export class ImageDisplayPortComponent implements AfterViewInit {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
-    // prevents default touch handling
-    event.preventDefault();
     // get touch info
     let touch = event.touches[0];
     // stores location of mouse upon touch, to later calculate translation
@@ -284,7 +282,7 @@ export class ImageDisplayPortComponent implements AfterViewInit {
 
   @HostListener('touchmove', ['$event'])
   onTouchMove(event: TouchEvent) {
-    // prevents default touch handling
+    // prevents default touch handling, stops chome swipe down to refresh feature
     event.preventDefault();
     // get touch info
     let touch = event.touches[0];
