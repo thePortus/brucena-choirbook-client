@@ -28,6 +28,7 @@
 }
 
 :host .image-container .camera-controls {
+    z-index: 1;
     float: right;
     position: absolute;
     bottom: 5px;
