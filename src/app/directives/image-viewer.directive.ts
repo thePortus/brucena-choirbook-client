@@ -55,6 +55,7 @@ export class ImageViewerDirective {
       // move image
       this.xPan += translateX;
       this.yPan += translateY;
+      this.applyInputs();
     }
   }
 
@@ -68,6 +69,7 @@ export class ImageViewerDirective {
     // move image
     this.xPan += translateX;
     this.yPan += translateY;
+    this.applyInputs();
   }
 
 }
