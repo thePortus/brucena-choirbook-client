@@ -295,16 +295,4 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
-  @HostListener('touchend', ['$event'])
-  onTouchEnd(event: TouchEvent) {
-    let touch = event.touches[0];
-    // calculates how much the mouse has moved since touch and then translates to pan, then clears mouseDown flag
-    this.mouseDown = false;
-    const translateX = (touch.pageX - this.mouseX);
-    const translateY = (touch.pageY - this.mouseY);
-    // move image
-    this.increasePan('x', translateX);
-    this.increasePan('y', translateY);
-  }
-
 }
