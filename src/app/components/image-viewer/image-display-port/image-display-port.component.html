@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <img appImageViewer [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" #mainImage>
+                <img appImageViewer [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" (updatePan)="updatePan($event)" #mainImage>
             </div>
         </div>
     </div>
