@@ -2,6 +2,8 @@ import { Component, Input, SimpleChanges, ViewChild, AfterViewInit, ElementRef, 
 
 import { imageDatum } from 'app/interfaces/image-datum';
 
+import { Settings } from 'app/app.settings';
+
 @Component({
   selector: 'app-image-display-port',
   templateUrl: './image-display-port.component.html',
@@ -18,6 +20,8 @@ export class ImageDisplayPortComponent implements AfterViewInit {
 
   // tracks whether images has loaded yet (for hiding during loading)
   hasLoaded: boolean = false;
+  // tracks whether to show help display
+  showHelp: boolean = false;
   // tracks zoom and pan of image
   xPan = 0;
   yPan = 0;
@@ -45,7 +49,6 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
     this.resetImage();
     this.hasLoaded = false;
-
   }
 
   /**
@@ -64,7 +67,7 @@ export class ImageDisplayPortComponent implements AfterViewInit {
    * @param imageDatum - object with filename, recto, and verso page information
    */
   getPath(imageDatum: any) {
-    return 'assets/images/choirbook/' + imageDatum.path;
+    return Settings.imagePath + imageDatum.path;
   }
 
   /**
@@ -172,6 +175,9 @@ export class ImageDisplayPortComponent implements AfterViewInit {
    * 
    */
   adjustSizes() {
+    // resize image element to its own natural height & width
+    this.mainImage.nativeElement.style.height = this.mainImage.nativeElement.naturalHeight + 'px';
+    this.mainImage.nativeElement.style.width = this.mainImage.nativeElement.naturalWidth + 'px';
     const dimensions = this.calcImageDimensions();
     if (dimensions.orientation == 'height') {
       this.mainImage.nativeElement.style.height = dimensions.height - 20 + 'px';
@@ -192,11 +198,26 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     this.yPan = event.y;
   }
 
+  /**
+   * Toggles showing help panel for controls
+   */
+  toggleHelp() {
+    this.showHelp = !this.showHelp;
+  }
+
+  /**
+   * Runs when window is resized. Resizes image to not spill over container elements
+   * @param event window event
+   */
   @HostListener ('window:resize', ['$event'])
   sizeChange(event: any) {
     this.adjustSizes();
   }
 
+  /**
+   * Runs when keyboard is pressed
+   * @param event keyboard event
+   */
   @HostListener ('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key == '=' || event.key == '+') {
@@ -207,6 +228,9 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
+  /** Runs when arrowkey is pressed
+   * @param event KeyboardEvent
+   */
   @HostListener ('document:keydown', ['$event'])
   handleArrowKeyEvent(event: KeyboardEvent) {
     if (event.key == 'ArrowUp') {
@@ -226,6 +250,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Handles scrolling when mousewheel is used
+   * @param event wheelevent
+   */
   @HostListener('wheel', ['$event'])
   onMouseWheel(event: WheelEvent) {
     if(event.deltaY < 0) {
@@ -236,6 +264,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Starts drag event when mouse is pressed
+   * @param event mouseevent
+   */
   @HostListener('document:mousedown', ['$event'])
   onMouseDown(event: MouseEvent) {
     // stores location of mouse upon mouse down, to later calculate translation
@@ -244,6 +276,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     this.mouseDown = true;
   }
 
+  /**
+   * Updates movement as mouse moves
+   * @param event mouseevent
+   */
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     // calculates how much the mouse has moved since mousedown and then translates to pan
@@ -259,6 +295,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Ceases mouse move event
+   * @param event mouseevent
+   */
   @HostListener('document:mouseup', ['$event'])
   onMouseUp(event: MouseEvent) {
     // calculates how much the mouse has moved since mousedown and then translates to pan, then clears mouseDown flag
@@ -270,6 +310,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     this.increasePan('y', translateY);
   }
 
+  /**
+   * Handles the start of a mobile touch event
+   * @param event touchevent
+   */
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
     // get touch info
@@ -280,6 +324,10 @@ export class ImageDisplayPortComponent implements AfterViewInit {
     this.mouseDown = true;
   }
 
+  /**
+   * Handles the update of a mobile touch event
+   * @param event touchevent
+   */
   @HostListener('touchmove', ['$event'])
   onTouchMove(event: TouchEvent) {
     // prevents default touch handling, stops chome swipe down to refresh feature
