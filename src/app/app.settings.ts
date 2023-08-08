@@ -6,6 +6,8 @@ export const Settings = {
     // sets font information
     bodyFont: 'Lato',
     titleFont: 'Julius Sans One',
+    // image locations
+    imagePath: 'assets/images/choirbook/',
     // sets the url of the server API
     apiUrl: 'http://localhost:8080/api/',
     // siteUrl

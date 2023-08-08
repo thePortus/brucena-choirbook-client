@@ -7,7 +7,7 @@
         <div class="image-wrapper h-full w-full flex justify-center" #imageWrapper>
             <div class="image-container h-full w-full flex justify-center">
                 <!-- toolbar overlay -->
-                <div *ngIf="hasLoaded" class="toolbar flex flex-row justify-start items-center">
+                <div *ngIf="hasLoaded && !showHelp" class="toolbar flex flex-row justify-start items-center">
                     <!-- pagination info -->
                     <div class="flex w-full flex-row justify-center">
                         <!-- display info if neither page is titled (numbered) -->
@@ -38,15 +38,68 @@
                         </div>     
                     </div>
                 </div>
+                <div *ngIf="hasLoaded && showHelp" class="controls-help flex flex-col justify-center items-center" (click)="toggleHelp()">
+                    <div class="controls-help-box flex flex-col justify-center items-center max-sm:w-full max-md:w-3/4 w-1/2">
+                        <div class="controls-help-box-header p-2">
+                            Mouse Controls
+                        </div>
+                        <div class="p-2 flex flex-col justify-center items-center">
+                            <div>
+                                <mat-icon fontIcon="pan_tool" aria-label="Pan icon"></mat-icon> Pan with mouse drag or mobile touch
+                            </div>
+                            <div>
+                                <mat-icon fontIcon="zoom_in" aria-label="Zoom in icon"></mat-icon>/<mat-icon fontIcon="zoom_out" aria-label="Zoom out icon"></mat-icon> Zoom with scroll wheel (or trackpad scroll)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls-help-box flex flex-col justify-center items-center max-sm:w-full max-md:w-3/4 w-1/2">
+                        <div class="controls-help-box-header p-2">
+                            On Screen Controls
+                        </div>
+                        <div class="p-2 flex flex-col justify-center items-center">
+                            <div>
+                                <mat-icon fontIcon="pan_tool" aria-label="Pan icon"></mat-icon> Pan with arrow buttons
+                            </div>
+                            <div>
+                                <mat-icon fontIcon="zoom_in" aria-label="Zoom in icon"></mat-icon>/<mat-icon fontIcon="zoom_out" aria-label="Zoom out icon"></mat-icon> Zoom with +/- buttons
+                            </div>
+                            <div>
+                                <mat-icon fontIcon="refresh" aria-label="Refresh icon"></mat-icon> Hit refresh to reset the image
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-sm:invisible controls-help-box flex flex-col justify-center items-center max-sm:w-full max-md:w-3/4 w-1/2">
+                        <div class="controls-help-box-header p-2">
+                            Keyboard Controls
+                        </div>
+                        <div class="p-2 flex flex-col justify-center items-center">
+                            <div>
+                                <mat-icon fontIcon="pan_tool" aria-label="Pan icon"></mat-icon> Pan with arrow keys
+                            </div>
+                            <div>
+                                <mat-icon fontIcon="zoom_in" aria-label="Zoom in icon"></mat-icon>/<mat-icon fontIcon="zoom_out" aria-label="Zoom out icon"></mat-icon> Zoom with +/- keys
+                            </div>
+                            <div>
+                                <mat-icon fontIcon="refresh" aria-label="Refresh icon"></mat-icon> Backspace, Enter, or Space to reset the image
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- zoom and pan controls -->
                 <div class="camera-controls">
                     <mat-grid-list cols="3" rowHeight="1:1">
                         <!-- top row grid -->
-                        <mat-grid-tile colspan="3">
+                        <mat-grid-tile>
+                            <div class="flex flex-col justify-center items-center" (click)="toggleHelp()">
+                                <mat-icon fontIcon="help" aria-label="Show help"></mat-icon>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
                             <div class="flex flex-col justify-center items-center" (click)="decreasePan('y')">
                                 <mat-icon fontIcon="expand_less" aria-label="Pan up"></mat-icon>
                             </div>
                         </mat-grid-tile>
+                        <mat-grid-tile></mat-grid-tile>
                         <!-- middle row grid-->
                         <mat-grid-tile>
                             <div class="flex flex-col justify-center items-center" (click)="decreasePan('x')">
@@ -81,7 +134,7 @@
                             </mat-grid-tile>
                         </mat-grid-list>
                 </div>
-                <img appImageViewer [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" (updatePan)="updatePan($event)" #mainImage>
+                <img appImageViewer class="scale-down" [hidden]="!hasLoaded" [src]="getPath(imageDatum)" [alt]="getAltText(imageDatum)" (load)="imageLoaded()" [xPan]="xPan" [yPan]="yPan" [zoomLevel]="zoomLevel" (updatePan)="updatePan($event)" #mainImage>
             </div>
         </div>
     </div>

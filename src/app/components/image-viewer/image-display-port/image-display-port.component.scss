@@ -27,6 +27,37 @@
     padding: 5px;
 }
 
+:host .image-container .controls-help {
+    float: left;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    color: map.get($mat-choirbook-primary, 'contrast', 900);
+    background-color: map.get($mat-choirbook-primary, 'contrast', 50);
+    border-color: map.get($mat-choirbook-primary, 900);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    opacity: 0.75;
+}
+
+:host .image-container .controls-help .controls-help-box {
+    background-color: map.get($mat-choirbook-primary, 'contrast', 50);
+    border-color: map.get($mat-choirbook-primary, 'contrast', 900);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+}
+
+:host .image-container .controls-help .controls-help-box .controls-help-box-header {
+    border-width: 0px 0px 1px 0px;
+    border-color: map.get($mat-choirbook-primary, 'contrast', 900);
+    border-style: solid;
+}
+
 :host .image-container .camera-controls {
     z-index: 1;
     float: right;
@@ -64,4 +95,27 @@
 // disables pointer events except during hover (when cursor turns to pointer)
 :host .image-container img:active {
     pointer-events: none;
+}
+
+// If the screen size is 1280px wide or more, set for large screen
+@media screen and (min-width: 640px) {
+    :host .image-container .controls-help .controls-help-box {
+        margin: 5px 0px 5px 0px;
+    }
+
+    :host .image-container .controls-help {
+        margin: 5px;
+    }
+}
+
+// If the screen size is 640px wide or less, set for mobile
+@media screen and (max-width: 640px){
+    :host .image-container .controls-help .controls-help-box {
+        margin: 2px 0px 2px 0px;
+        font-size: .9em;
+    }
+
+    :host .image-container .controls-help {
+        margin: 2px;
+    }
 }
